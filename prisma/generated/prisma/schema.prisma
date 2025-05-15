@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Barang {
+  id_barang  Int     @id @default(autoincrement())
+  nama       String
+  varian     String?
+  harga_beli Float
+  harga_jual Float
+
+  // Relasi
+  Pesanan   Pesanan[]
+  Pembelian Pembelian[]
+}
+
+model Pesanan {
+  id_pesanan   Int      @id @default(autoincrement())
+  id_pelanggan Int
+  id_barang    Int
+  qty          Int
+  tgl_pesan    DateTime
+
+  Pembeli Pembeli @relation(fields: [id_pelanggan], references: [id_pembeli])
+  Barang  Barang  @relation(fields: [id_barang], references: [id_barang])
+}
+
+model Pembelian {
+  id_pembelian Int      @id @default(autoincrement())
+  id_barang    Int
+  id_suplier   Int
+  qty          Int
+  tgl          DateTime
+
+  Barang  Barang  @relation(fields: [id_barang], references: [id_barang])
+  Suplier Suplier @relation(fields: [id_suplier], references: [id_suplier])
+}
+
+model Pembeli {
+  id_pembeli  Int       @id @default(autoincrement())
+  nama        String
+  jns_kelamin String
+  alamat      String
+  kode_pos    String
+  kota        String
+  tgl_lahir   DateTime
+  Pesanan     Pesanan[]
+}
+
+model Suplier {
+  id_suplier Int    @id @default(autoincrement())
+  nama       String
+  alamat     String
+  kode_pos   String
+  kota       String
+
+  Pembelian Pembelian[]
+}

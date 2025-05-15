@@ -1,0 +1,6 @@
+- pahami server express
+- pahami rest api apakah ini sudah rest api ???
+- tambahkan ke router delete, update,
+- logika untuk halaman yang lain??
+- css
+- bagaimana menampilkan data ke tabel yang beralasi ke tabel lain ???

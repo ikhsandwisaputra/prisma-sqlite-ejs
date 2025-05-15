@@ -1,0 +1,5 @@
+-- CreateTable
+CREATE TABLE "Tes" (
+    "id_tes" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "nama" TEXT NOT NULL
+);

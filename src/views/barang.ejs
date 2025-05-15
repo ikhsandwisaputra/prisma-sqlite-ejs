@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <nav>
+        <ul><li>
+            <a href="/">home</a>
+            <a href="/pembeli">pembeli</a>
+            <a href="/barang">barang</a>
+        </li></ul>
+    </nav>
+    <h1>Daftar barang</h1>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Jenis Kelamin</th>
+            <th>Alamat</th>
+            <th>Kode Pos</th>
+            <th>Kota</th>
+            <th>Tanggal Lahir</th>
+        </tr>
+        <% barang.forEach(b => {%>
+        <tr>
+            <td><%= b.nama %></td>
+            <td><%= b.varian%></td>
+            <td><%= b.harga_beli %></td>
+            <td><%= b.harga_jual %></td>        
+        </tr>
+        <%})%>
+    </table>
+
+    <!-- <h2>tambah pembeli</h2>
+    <form method="post" action="/pembeli">
+        <label for="nama">nama</label>
+     <input type="text" name="nama" required><br>
+        <label for="jns_kelamin">jns_kelamin</label>
+     <input type="text" name="jns_kelamin" required><br>
+        <label for="alamat">alamat</label>
+     <input type="text" name="alamat" required><br>
+        <label for="kode_pos">kode_pos</label>
+     <input type="text" name="kode_pos" required><br>
+        <label for="kota">kota</label>
+     <input type="text" name="kota" required><br>
+        <label for="tgl_lahir">tgl_lahir</label>
+     <input type="date" name="tgl_lahir" required><br>
+     <button type="submit">Simpan</button>
+    </form> -->
+</body>
+</html>
